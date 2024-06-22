@@ -1,0 +1,50 @@
+﻿@using Entity.DTOs.Blogs
+@model BlogDto
+@{
+    ViewData["Title"] = "Blog Detay";
+}
+
+<div class="service-banner-img">
+    <div class="ovrllay">
+        @await Component.InvokeAsync("Header")
+        <section id="banner" class="py-70">
+            <div class="container ">
+                <div class="row py-70 ">
+                    <!-- #banner-text start -->
+                    <div id="banner-text" class="col-md-12 text-c  ">
+                        <div class="left-borders">
+                            <h5 class="wow fadeInUp main-about_h" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">BLOG DETAYI</h5>
+                            <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                                <span class="c_yellow">
+                                    BLOG DETAYI
+                                </span>  | ORR <br>AND ITS ATTORNEYS
+                            </p>
+                        </div>
+
+                    </div>
+                    <!-- /#banner-text End -->
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+<section class="blog-details-area wow fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                <div class="blog-details-wrap">
+                    <div class="blog-details-img">
+                        <img src="~/star-law-master/assets/images/blog/blog-details.jpg" alt="" />
+                    </div>
+                    <div class="blog-details-content wow fadeInUp">
+                        <h3>@Model.Title</h3>
+                         <p>@Model.Content</p>
+                         <blockquote>@Model.Content</blockquote>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

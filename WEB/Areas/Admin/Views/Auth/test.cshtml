@@ -1,0 +1,64 @@
+﻿@using Entity.DTOs.Users
+@model UserLoginDto
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">Hoşgeldiniz</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Form elements </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Üye Girişi</h4>
+                            <p class="card-description">Admin panelini giriş yapabilirsiniz</p>
+                            <form class="forms-sample" asp-controller="Auth" asp-action="Login" method="post">
+                                <div class="form-group row">
+                                    <label asp-for="Email" for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Email" type="text" class="form-control" id="exampleInputUsername2" placeholder="Email">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label asp-for="Password" for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <input asp-for="Password" type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-check form-check-flat form-check-primary">
+                                    <label asp-for="RememberMe" class="form-check-label">
+                                        <input asp-for="RememberMe" type="checkbox" class="form-check-input"> Remember me <i class="input-helper"></i>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary mr-2"> Giriş yap </button>
+                                <button class="btn btn-light">Şifremi Unuttum</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+            <div class="container">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
+                </div>
+            </div>
+        </footer>
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>

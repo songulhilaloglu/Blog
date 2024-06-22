@@ -1,0 +1,63 @@
+﻿@model List<BannerDto>
+
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">Banner</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Banner </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Başlık</th>
+                                            <th>Alt Başlık</th>
+                                            <th>Açıklama</th>
+                                            <th>Oluşturulma Tarihi</th>
+                                            <th>Oluşturan</th>
+                                            <th>Durumu</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var banner in Model)
+                                        {
+                                            <tr>
+                                                <td>@banner.Title</td>
+                                                <td>@(banner.Subtitle.Length > 10 ? @banner.Subtitle.Substring(0, 10) + "..." : @banner.Subtitle)</td>
+                                                <td>@(banner.Description.Length > 20 ? @banner.Description.Substring(0, 20) + "..." : @banner.Description)</td>
+                                                <td>
+                                                    @banner.CreatedDate.ToString()
+                                                </td>
+                                                <td>@banner.CreatedBy</td>
+                                                <td>@banner.IsDeleted</td>
+                                                <td>
+                                                    <a data-id="@banner.Id" asp-area="Admin" asp-controller="Banner" asp-action="Update" asp-route-bannerId="@banner.Id">
+                                                        <button type="button" class="btn btn-success btn-md">Güncelle</button>
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        @await Component.InvokeAsync("AdminFooter")
+    </div>
+</div>

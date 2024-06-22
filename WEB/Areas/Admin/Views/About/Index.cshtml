@@ -1,0 +1,68 @@
+﻿@using Entity.DTOs.Abouts
+@model List<AboutDto>
+
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">Hakkımızda</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Hakkımızda </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Başlık</th>
+                                            <th>İçerik</th>
+                                            <th>Oluşturulma Tarihi</th>
+                                            <th>Oluşturan</th>
+                                            <th>Durumu</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var about in Model)
+                                        {
+                                            <tr>
+                                                <td>@about.Title</td>
+                                                <td>@(about.Content.Length > 20 ? @about.Content.Substring(0, 20) + "..." : @about.Content)</td>
+
+                                                <td>
+                                                    @about.CreatedDate.ToString()
+                                                </td>
+                                                <td>@about.CreatedBy</td>
+                                                <td>@about.IsDeleted</td>
+                                                <td>
+                                                    <a data-id="@about.Id" asp-area="Admin" asp-controller="About" asp-action="Update" asp-route-aboutId="@about.Id">
+                                                        <button type="button" class="btn btn-success btn-md">Güncelle</button>
+                                                    </a>
+                                                    
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        @await Component.InvokeAsync("AdminFooter")
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>
+

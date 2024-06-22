@@ -1,0 +1,62 @@
+﻿@model List<BlogDto>
+
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">Bloglar</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-area="Admin"  asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Bloglar </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Başlık</th>
+                                            <th>Kategori</th>
+                                            <th>Oluşturulma Tarihi</th>
+                                            <th>Oluşturan</th>
+                                            <th>Durumu</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var blog in Model)
+                                        {
+                                            <tr>
+                                                <td>@(blog.Title.Length > 40 ? blog.Title.Substring(0, 40) + "..." : blog.Title)</td>
+                                                <td>@blog.Category.Name</td>
+                                                <td> @blog.CreatedDate.ToString()
+                                                </td>
+                                                <td>@blog.CreatedBy</td>
+                                                <td>@blog.IsDeleted</td>
+                                                <td>
+                                                    <a data-id="@blog.Id" asp-area="Admin" asp-controller="Blog" asp-action="Update" asp-route-blogId="@blog.Id">
+                                                        <button type="button" class="btn btn-success btn-md">Güncelle</button>
+                                                    </a>
+                                                    <a data-id="@blog.Id" asp-area="Admin" asp-controller="Blog" asp-action="Update" asp-route-blogId="@blog.Id">
+                                                        <button type="button" class="btn btn-danger btn-md">Sil</button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        @await Component.InvokeAsync("AdminFooter")
+    </div>
+</div>

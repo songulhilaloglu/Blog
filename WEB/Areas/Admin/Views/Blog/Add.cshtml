@@ -1,0 +1,59 @@
+﻿@model BlogAddDto
+ 
+<div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Blog Ekle</h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Blog Ekle </li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <form class="forms-sample"asp-controller="Blog" asp-action="Add" method="POST" enctype="multipart/form-data" >
+                        <div asp-validation-summary="ModelOnly"></div>
+                      <div class="form-group">
+                        <label asp-for="Title" for="exampleInputName1">Başlık</label>
+                        <input asp-for="Title" type="text" class="form-control" id="exampleInputName1" placeholder="Başlık" />
+                         <span asp-validation-for="Title" class="text-danger small"></span>
+                      </div>
+                      <div class="form-group">
+                        <label asp-for="CategoryId" for="exampleSelectGender">Kategori</label>
+                        <select class="form-control"id="categoryList" asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories,"Id","Name"))">
+                          @* <option>Kategori seçiniz</option> *@
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                      </div>
+                      <div class="form-group">
+                        <label asp-for="Content">İçerik</label>
+                        <textarea asp-for="Content"
+                          class="form-control"
+                          rows="4"
+                        ></textarea>
+                        <span asp-validation-for="Content" class="text-danger small"></span>
+                      </div>
+                      <div class="form-group">
+                            <label asp-for="ImageFile" for="defaultFormControlInput" class="form-label">Resim seçiniz</label>
+                                    <input required asp-for="ImageFile" type="file" accept="image/*" class="form-control mb-3" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp" />
+                             <span asp-validation-for="ImageFile" class="text-danger"></span>
+                        </div>
+                      <button type="submit" class="btn btn-primary mr-2"> Kaydet </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        @await Component.InvokeAsync("AdminFooter")
+        </div>
+      </div>
+
+
+
+              

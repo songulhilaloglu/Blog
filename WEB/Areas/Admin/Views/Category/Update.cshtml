@@ -1,0 +1,40 @@
+﻿@using Entity.DTOs.Categories
+@model CategoryUpdateDto
+
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">Kategori Güncelle</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Kategori Güncelle </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="forms-sample" asp-controller="Category" asp-action="Update" method="post" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly"></div>
+                                <input type="hidden" asp-for="Id" />
+                                <div class="form-group">
+                                    <label asp-for="Name" for="exampleInputName1">Kategori Adı</label>
+                                    <input asp-for="Name" type="text" class="form-control" id="exampleInputName1" placeholder="Kategori Adı" />
+                                </div>
+                                <button type="submit" class="btn btn-primary mr-2"> Güncelle </button>
+                                <a asp-area="Admin" asp-controller="Category" asp-action="Index"><button class="btn btn-light">Vazgeç</button> </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @await Component.InvokeAsync("AdminFooter")
+    </div>
+</div>
+
+
+

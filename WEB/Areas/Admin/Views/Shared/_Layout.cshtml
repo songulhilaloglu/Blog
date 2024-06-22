@@ -1,0 +1,65 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewBag.Title Plus Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/plus-admin/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/plus-admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="~/plus-admin/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="~/plus-admin/assets/vendors/jquery-bar-rating/css-stars.css" />
+    <link rel="stylesheet" href="~/plus-admin/assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/plus-admin/assets/css/demo_2/style.css" />
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="~/plus-admin/assets/images/favicon.png" />
+
+    <link rel="stylesheet" href="~/plus-admin/assets/vendors/select2/select2.min.css" />
+    <link rel="stylesheet" href="~/plus-admin/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" />
+
+</head>
+<body>
+    <div class="container-scroller">
+        @await Component.InvokeAsync("Navbar")
+        
+        @RenderBody()
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/plus-admin/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="~/plus-admin/assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+    <script src="~/plus-admin/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="~/plus-admin/assets/vendors/flot/jquery.flot.js"></script>
+    <script src="~/plus-admin/assets/vendors/flot/jquery.flot.resize.js"></script>
+    <script src="~/plus-admin/assets/vendors/flot/jquery.flot.categories.js"></script>
+    <script src="~/plus-admin/assets/vendors/flot/jquery.flot.fillbetween.js"></script>
+    <script src="~/plus-admin/assets/vendors/flot/jquery.flot.stack.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/plus-admin/assets/js/off-canvas.js"></script>
+    <script src="~/plus-admin/assets/js/hoverable-collapse.js"></script>
+    <script src="~/plus-admin/assets/js/misc.js"></script>
+    <script src="~/plus-admin/assets/js/settings.js"></script>
+    <script src="~/plus-admin/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="~/plus-admin/assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+    <script src="~/plus-admin/assets/vendors/select2/select2.min.js"></script>
+    <script src="~/plus-admin/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <script src="~/plus-admin/assets/js/file-upload.js"></script>
+    <script src="~/plus-admin/assets/js/typeahead.js"></script>
+    <script src="~/plus-admin/assets/js/select2.js"></script>
+    @await Component.InvokeAsync("NToastNotify")
+</body>
+</html>
