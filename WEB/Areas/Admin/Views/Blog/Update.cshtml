@@ -34,25 +34,15 @@
                                 <div class="form-group">
                                     <label asp-for="Content" for="exampleTextarea1">İçerik</label>
                                     <textarea asp-for="Content"
+                                              id="editor"
                                               class="form-control"
                                               id="exampleTextarea1"
-                                              rows="4"></textarea>
+                                              rows="12"></textarea>
                                     <span asp-validation-for="Content" class="text-danger small"></span>
                                 </div>
 
-                                <div class="form-group col-md-6">
-                                    <label asp-for="Image.FileName" for="defaultFormControlInput" class="form-label d-block">Mevcut Resim</label>
-                                    <img style="height:25em; width:25em;" class="mb-3" src="~/images/@Model.Image.FileName" alt="@Model.Title" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label asp-for="ImageFile" for="defaultFormControlInput" class="form-label">Resim seçiniz</label>
-                                    <input asp-for="ImageFile" type="file" accept="image/*" class="form-control mb-3" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
-                                    <span asp-validation-for="ImageFile" class="text-danger"></span>
-                                </div>
-                               
-
                                 <button type="submit" class="btn btn-primary mr-2"> Güncelle </button>
-                                <a asp-area="Admin" asp-controller="Blog" asp-action="Index" ><button class="btn btn-light">Vazgeç</button> </a>
+                               
                             </form>
                         </div>
                     </div>
@@ -64,4 +54,19 @@
 </div>
 
 
+@section Scripts
+{
+
+    @* CK Editörü kullanmak için js ve script kodunu yazmak gerkiyor. 41.4.2 classic editor build (latest version) kullanıyorum *@
+    <script src="~/ckeditor5-build-classic-41.4.2/ckeditor5-build-classic/ckeditor.js"></script>
+    <a href="~/ckeditor5-build-classic-41.4.2/ckeditor5-build-classic/ckeditor.js.map">~/ckeditor5-build-classic-41.4.2/ckeditor5-build-classic/ckeditor.js.map</a>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+}
 

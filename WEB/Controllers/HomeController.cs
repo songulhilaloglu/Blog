@@ -9,17 +9,20 @@ namespace WEB.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IBannerService bannerService;
+        private readonly IDashboardService dashboardService;
 
         public HomeController(ILogger<HomeController> logger, IBannerService bannerService)
         {
             _logger = logger;
             this.bannerService = bannerService;
+            
         }
 
 
         public async Task<IActionResult> Index()
         {
             var banners = await bannerService.GetAllBannersAsync();
+            
             return View(banners);
         }
 

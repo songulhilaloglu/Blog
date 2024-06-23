@@ -40,12 +40,11 @@
                                                     @banner.CreatedDate.ToString()
                                                 </td>
                                                 <td>@banner.CreatedBy</td>
-                                                <td>@banner.IsDeleted</td>
+                                                <td>@(banner.IsDeleted ? "Pasif" : "Aktif")</td>
                                                 <td>
                                                     <a data-id="@banner.Id" asp-area="Admin" asp-controller="Banner" asp-action="Update" asp-route-bannerId="@banner.Id">
                                                         <button type="button" class="btn btn-success btn-md">Güncelle</button>
                                                     </a>
-
                                                 </td>
                                             </tr>
                                         }

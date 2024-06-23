@@ -16,9 +16,6 @@ namespace Service.AutoMapper.Banners
         {
             CreateMap<BannerDto, Banner>().ReverseMap();
             CreateMap<BannerUpdateDto, Banner>().ReverseMap();
-          
         }
-
     }
-   
 }

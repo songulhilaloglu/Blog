@@ -21,7 +21,6 @@
                                     <thead>
                                         <tr>
                                             <th>Başlık</th>
-                                            <th>Kategori</th>
                                             <th>Oluşturulma Tarihi</th>
                                             <th>Oluşturan</th>
                                             <th>Durumu</th>
@@ -33,16 +32,15 @@
                                         {
                                             <tr>
                                                 <td>@(blog.Title.Length > 40 ? blog.Title.Substring(0, 40) + "..." : blog.Title)</td>
-                                                <td>@blog.Category.Name</td>
                                                 <td> @blog.CreatedDate.ToString()
                                                 </td>
                                                 <td>@blog.CreatedBy</td>
-                                                <td>@blog.IsDeleted</td>
+                                                <td>@(blog.IsDeleted == false ? "Aktif" : "Pasif")</td>
                                                 <td>
                                                     <a data-id="@blog.Id" asp-area="Admin" asp-controller="Blog" asp-action="Update" asp-route-blogId="@blog.Id">
                                                         <button type="button" class="btn btn-success btn-md">Güncelle</button>
                                                     </a>
-                                                    <a data-id="@blog.Id" asp-area="Admin" asp-controller="Blog" asp-action="Update" asp-route-blogId="@blog.Id">
+                                                    <a data-id="@blog.Id" asp-area="Admin" asp-controller="Blog" asp-action="Delete" asp-route-blogId="@blog.Id">
                                                         <button type="button" class="btn btn-danger btn-md">Sil</button>
                                                     </a>
                                                 </td>

@@ -11,7 +11,6 @@ namespace Entity.Entities
     {
         public Image()
         {
-            Blogs = new List<Blog>();
             Users = new HashSet<AppUser>();
         }
 

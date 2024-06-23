@@ -13,15 +13,17 @@ namespace Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Image> builder)
         {
-            builder.HasData(new Image
+            builder.HasData(
+            new Image
             {
                 Id = 1,
-                FileName = "images/testimage1",
+                FileName = "blog-images/default.jpg",
                 FileType = "jpg",
                 CreatedBy = "Songül Hilaloğlu",
                 CreatedDate = DateTime.Now,
                 IsDeleted = false
             }
+            
             );
         }
     }

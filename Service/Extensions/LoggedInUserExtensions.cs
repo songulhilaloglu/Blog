@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.Extensions
 {
-    // Static class olmasının sebebi bu class ile newleme işlemi yapmayacağız.
+    // Static class olmasının sebebi bu class ile newleme işlemi yapılmayacak..
     public static class LoggedInUserExtensions
     {
         public static int GetLoggedInUserId(this ClaimsPrincipal principal)

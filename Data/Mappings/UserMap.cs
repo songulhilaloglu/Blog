@@ -59,8 +59,8 @@ namespace Data.Mappings
                 LastName = "Hilaloğlu",
                 PhoneNumberConfirmed = true,
                 EmailConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                ImageId = 1
+                SecurityStamp = Guid.NewGuid().ToString()
+                
             };
             superadmin.PasswordHash = CreatePasswordHash(superadmin, "123456");
 
@@ -76,8 +76,8 @@ namespace Data.Mappings
                 LastName = "Kullanıcısı",
                 PhoneNumberConfirmed = false,
                 EmailConfirmed = false,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                ImageId = 1
+                SecurityStamp = Guid.NewGuid().ToString()
+                
             };
             admin.PasswordHash = CreatePasswordHash(admin, "123456");
 

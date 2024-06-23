@@ -28,6 +28,17 @@ namespace Service.FluentValidations
              .NotEmpty()
              .MinimumLength(11)
              .WithName("Telefon numarası");
+
+            RuleFor(x => x.Email)
+             .NotEmpty()
+             .EmailAddress()
+             .WithName("Email");
+
+            RuleFor(x => x.PasswordHash)
+            .NotEmpty()
+            .EmailAddress()
+            .WithName("Email");
+
         }
     }
 }

@@ -5,6 +5,7 @@ using NToastNotify;
 using Data.Context;
 using Entity.Entities;
 using Service.Describers;
+using WEB.Filters.BlogVisitors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,10 @@ builder.Services.AddSession();
 
 
 // Add services to the container.
-builder.Services.AddControllersWithViews()
+builder.Services.AddControllersWithViews(opt =>
+{
+    opt.Filters.Add<BlogVisitorFilter>();
+})
     .AddNToastNotifyToastr(new ToastrOptions()
     {
         PositionClass = ToastPositions.BottomRight,

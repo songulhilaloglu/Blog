@@ -16,7 +16,6 @@ using System.Threading.Tasks;
 
 namespace Service.Services.Concrete
 {
-   
     public class BlogService : IBlogService
     {
         private readonly IUnitOfWork unitOfWork;
@@ -34,7 +33,6 @@ namespace Service.Services.Concrete
             this.imageHelper = imageHelper;
         }
 
-        
         public async Task<BlogListDto> GetAllByPagingAsync(int? categoryId, int currentPage = 1, int pageSize = 3, bool isAscending = false)
         {
             pageSize = pageSize > 20 ? 20 : pageSize;
@@ -58,20 +56,12 @@ namespace Service.Services.Concrete
         public async Task<List<BlogDto>> GetAllBlogsAsync()
         {
 
-            var Blogs = await unitOfWork.GetRepository<Blog>().GetAllAsync(x => !x.IsDeleted, x => x.Category);
-            var map = mapper.Map<List<BlogDto>>(Blogs);
-
+            var blogs = await unitOfWork.GetRepository<Blog>().GetAllAsync(x => !x.IsDeleted, x => x.Category);
+            var map = mapper.Map<List<BlogDto>>(blogs);
             return map;
         }
 
-        public async Task<List<BlogDto>> GetAllBlogsDeletedAsync()
-        {
-            var Blogs = await unitOfWork.GetRepository<Blog>().GetAllAsync(x => x.IsDeleted, x => x.Category);
-            var map = mapper.Map<List<BlogDto>>(Blogs);
-
-            return map;
-        }
-
+        
         public async Task<BlogDto> GetBlogAsync(int BlogId)
         {
             var Blog = await unitOfWork.GetRepository<Blog>().GetAsync(x => !x.IsDeleted && x.Id == BlogId, x => x.Category, i => i.Image, u => u.User);
@@ -83,7 +73,7 @@ namespace Service.Services.Concrete
         {
             var userId = _user.GetLoggedInUserId();
             var userEmail = _user.GetLoggedInEmail();
-            var imageUpload = await imageHelper.Upload(blogAddDto.Title, blogAddDto.ImageFile, ImageType.Post);
+            var imageUpload = await imageHelper.Upload(blogAddDto.Title, blogAddDto.ImageFile, ImageType.Blog);
             Image image = new Image(imageUpload.FullName, blogAddDto.ImageFile.ContentType, userEmail);
             await unitOfWork.GetRepository<Image>().AddAsync(image);
             await unitOfWork.SaveAsync();
@@ -101,7 +91,7 @@ namespace Service.Services.Concrete
             {
                 imageHelper.Delete(blog.Image.FileName);
 
-                var imageUpload = await imageHelper.Upload(blogUpdateDto.Title, blogUpdateDto.ImageFile, ImageType.Post);
+                var imageUpload = await imageHelper.Upload(blogUpdateDto.Title, blogUpdateDto.ImageFile, ImageType.Blog);
                 Image image = new(imageUpload.FullName, blogUpdateDto.ImageFile.ContentType, userEmail);
                 await unitOfWork.GetRepository<Image>().AddAsync(image);
                 blog.ImageId = image.Id;
@@ -109,9 +99,6 @@ namespace Service.Services.Concrete
             }
 
             mapper.Map(blogUpdateDto, blog);
-            //article.Title = articleUpdateDto.Title;
-            //article.Content = articleUpdateDto.Content;
-            //article.CategoryId = articleUpdateDto.CategoryId;
             blog.ModifiedDate = DateTime.Now;
             blog.ModifiedBy = userEmail;
 
@@ -123,7 +110,7 @@ namespace Service.Services.Concrete
         }
 
 
-        public async Task<string> SafeDeleteBlogAsync(int blogId)
+        public async Task<string> DeleteBlogAsync(int blogId)
         {
             var userEmail = _user.GetLoggedInEmail();
             var blog = await unitOfWork.GetRepository<Blog>().GetByIdAsync(blogId);
@@ -135,36 +122,5 @@ namespace Service.Services.Concrete
             return blog.Title;
         }
 
-        public async Task<string> UndoDeleteBlogAsync(int blogId)
-        {
-            var blog = await unitOfWork.GetRepository<Blog>().GetByIdAsync(blogId);
-            blog.IsDeleted = false;
-            blog.DeletedDate = null;
-            blog.DeletedBy = null;
-            await unitOfWork.GetRepository<Blog>().UpdateAsync(blog);
-            await unitOfWork.SaveAsync();
-            return blog.Title;
-        }
-
-
-        public async Task<BlogListDto> SearchAsync(string keyword, int currentPage = 1, int pageSize = 3, bool isAscending = false)
-        {
-            pageSize = pageSize > 20 ? 20 : pageSize;
-            var blogs = await unitOfWork.GetRepository<Blog>().GetAllAsync(
-                a => !a.IsDeleted && (a.Title.Contains(keyword) || a.Content.Contains(keyword) || a.Category.Name.Contains(keyword)),
-            a => a.Category, i => i.Image, u => u.User);
-
-            var sortedBlogs = isAscending
-                ? blogs.OrderBy(a => a.CreatedDate).Skip((currentPage - 1) * pageSize).Take(pageSize).ToList()
-                : blogs.OrderByDescending(a => a.CreatedDate).Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
-            return new BlogListDto
-            {
-                Blogs = sortedBlogs,
-                CurrentPage = currentPage,
-                PageSize = pageSize,
-                TotalCount = blogs.Count,
-                IsAscending = isAscending
-            };
-        }
     }
 }

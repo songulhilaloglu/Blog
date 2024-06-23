@@ -14,14 +14,14 @@ namespace Entity.Entities
         {
 
         }
-        public Blog(string title, string content, int userId, string createdBy, int categoryId, int ımageId)
+        public Blog(string title, string content, int userId, string createdBy, int categoryId, int imageId)
         {
             Title = title;
             Content = content;
             UserId = userId;
             CreatedBy = createdBy;
             CategoryId = categoryId;
-            ImageId = ımageId;
+            ImageId = imageId;
             
         }
 
@@ -31,12 +31,12 @@ namespace Entity.Entities
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public int ImageId { get; set; }
+        public int? ImageId { get; set; }
         public Image Image { get; set; }
 
         public int UserId { get; set; }
         public AppUser User { get; set; }
 
-
+        public ICollection<BlogVisitor> BlogVisitors { get; set; }
     }
 }

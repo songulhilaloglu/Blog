@@ -16,7 +16,7 @@ namespace Service.Helpers
         private readonly IWebHostEnvironment env;
         private const string imgFolder = "images";
         private const string blogImagesFolder = "blog-images";
-        private const string userImagesFolder = "user-images";
+        private const string otherImagesFolder = "other-images";
 
 
         public ImageHelper(IWebHostEnvironment env)
@@ -79,7 +79,7 @@ namespace Service.Helpers
 
         public async Task<ImageUploadedDto> Upload(string name, IFormFile imageFile, ImageType imageType, string folderName = null)
         {
-            folderName ??= imageType == ImageType.User ? userImagesFolder : blogImagesFolder;
+            folderName ??= imageType == ImageType.Other ? otherImagesFolder : blogImagesFolder;
 
             if (!Directory.Exists($"{wwwroot}/{imgFolder}/{folderName}"))
                 Directory.CreateDirectory($"{wwwroot}/{imgFolder}/{folderName}");
@@ -99,7 +99,7 @@ namespace Service.Helpers
             await imageFile.CopyToAsync(stream);
             await stream.FlushAsync();
 
-            string message = imageType == ImageType.User
+            string message = imageType == ImageType.Other
                 ? $"{newFileName} isimli kullanıcı resmi başarı ile eklenmiştir."
                 : $"{newFileName} isimli makale resmi başarı ile eklenmiştir";
 

@@ -40,7 +40,7 @@
                                                     @about.CreatedDate.ToString()
                                                 </td>
                                                 <td>@about.CreatedBy</td>
-                                                <td>@about.IsDeleted</td>
+                                                <td>@(about.IsDeleted ? "Pasif" : "Aktif")</td>
                                                 <td>
                                                     <a data-id="@about.Id" asp-area="Admin" asp-controller="About" asp-action="Update" asp-route-aboutId="@about.Id">
                                                         <button type="button" class="btn btn-success btn-md">Güncelle</button>

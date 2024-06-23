@@ -25,8 +25,6 @@
                                             <th>Email</th>
                                             <th>Mesaj</th>
                                             <th>Gönderilme Tarihi</th>
-                                            <th>Durumu</th>
-                                            <th>İşlemler</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -36,8 +34,8 @@
                                                 <td>@message.FullName</td>
                                                 <td>@message.PhoneNumber</td>
                                                 <td>@message.Email</td>
-                                                <td>@message.Message</td>
-                                               
+                                                <td style="white-space: pre-wrap;">@message.Message</td>
+                                                <td>@message.CreatedDate</td>
                                             </tr>
                                         }
                                     </tbody>

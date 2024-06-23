@@ -4,11 +4,13 @@ using Entity.DTOs.Banners;
 using Entity.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using Service.Services.Abstractions;
 using Service.Services.Concrete;
 using System.ComponentModel.DataAnnotations;
+using WEB.Consts;
 using WEB.ResultMessages;
 
 namespace WEB.Areas.Admin.Controllers
@@ -28,6 +30,8 @@ namespace WEB.Areas.Admin.Controllers
             this.validator = validator;
             this.toast = toast;
         }
+
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Index()
         {
             var banners = await bannerService.GetAllBannersAsync();
@@ -35,6 +39,7 @@ namespace WEB.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Update(int bannerId)
         {
             var banner = await bannerService.GetBannerByIdAsync(bannerId);
@@ -43,6 +48,7 @@ namespace WEB.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Update(BannerUpdateDto bannerUpdateDto)
         {
             var map = mapper.Map<Banner>(bannerUpdateDto);

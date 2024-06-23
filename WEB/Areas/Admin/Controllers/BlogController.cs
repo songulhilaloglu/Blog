@@ -33,6 +33,7 @@ namespace WEB.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
         public async Task<IActionResult> Index()
         {
             var blogs = await blogService.GetAllBlogsAsync();
@@ -41,7 +42,7 @@ namespace WEB.Areas.Admin.Controllers
 
         // Blog ekleme GET
         [HttpGet]
-        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
         public async Task<IActionResult> Add()
         {
             var categories = await categoryService.GetAllCategoriesAsync();
@@ -49,7 +50,7 @@ namespace WEB.Areas.Admin.Controllers
         }
         // Blog ekleme POST
         [HttpPost]
-        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
         public async Task<IActionResult> Add(BlogAddDto blogAddDto)
         {
             var map = mapper.Map<Blog>(blogAddDto);
@@ -71,7 +72,7 @@ namespace WEB.Areas.Admin.Controllers
 
         // Blog güncelleme GET
         [HttpGet]
-        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
         public async Task<IActionResult> Update(int blogId)
         {
             var blog = await blogService.GetBlogAsync(blogId);
@@ -82,7 +83,7 @@ namespace WEB.Areas.Admin.Controllers
         }
         // Blog güncelleme POST
         [HttpPost]
-        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
         public async Task<IActionResult> Update(BlogUpdateDto blogUpdateDto)
         {
             var map = mapper.Map<Blog>(blogUpdateDto);
@@ -102,6 +103,14 @@ namespace WEB.Areas.Admin.Controllers
             return View(blogUpdateDto);
         }
 
-
+        // Blog silme GET
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
+        public async Task<IActionResult> Delete(int blogId)
+        {
+            var title = await blogService.DeleteBlogAsync(blogId);
+            toast.AddSuccessToastMessage(Messages.Blog.Delete(title), new ToastrOptions() { Title = "İşlem Başarılı" });
+            return RedirectToAction("Index", "Blog", new { Area = "Admin" });
+        }
+        
     }
 }

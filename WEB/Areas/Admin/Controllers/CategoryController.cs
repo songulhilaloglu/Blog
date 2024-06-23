@@ -3,9 +3,11 @@ using Entity.DTOs.Categories;
 using Entity.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using Service.Services.Abstractions;
+using WEB.Consts;
 using WEB.ResultMessages;
 
 namespace WEB.Areas.Admin.Controllers
@@ -25,23 +27,25 @@ namespace WEB.Areas.Admin.Controllers
             this.mapper = mapper;
             this.toast = toast;
         }
-        
+
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Index()
         {
             var categories = await categoryService.GetAllCategoriesAsync();
             return View(categories);
         }
-        public async Task<IActionResult> DeletedCategory()
-        {
-            var categories = await categoryService.GetAllCategoriesDeletedAsync();
-            return View(categories);
-        }
+
+      
         [HttpGet]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public IActionResult Add()
         {
             return View();
         }
+
+
         [HttpPost]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Add(CategoryAddDto categoryAddDto)
         {
             var map = mapper.Map<Category>(categoryAddDto);
@@ -58,7 +62,9 @@ namespace WEB.Areas.Admin.Controllers
             return View();
         }
 
+
         [HttpPost]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> AddWithAjax([FromBody] CategoryAddDto categoryAddDto)
         {
             var map = mapper.Map<Category>(categoryAddDto);
@@ -80,6 +86,7 @@ namespace WEB.Areas.Admin.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Update(int categoryId)
         {
             var category = await categoryService.GetCategoryByIdAsync(categoryId);
@@ -87,7 +94,10 @@ namespace WEB.Areas.Admin.Controllers
 
             return View(map);
         }
+
+
         [HttpPost]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Update(CategoryUpdateDto categoryUpdateDto)
         {
             var map = mapper.Map<Category>(categoryUpdateDto);
@@ -103,19 +113,16 @@ namespace WEB.Areas.Admin.Controllers
             result.AddToModelState(this.ModelState);
             return View();
         }
+
+
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Delete(int categoryId)
         {
-            var name = await categoryService.SafeDeleteCategoryAsync(categoryId);
+            var name = await categoryService.DeleteCategoryAsync(categoryId);
             toast.AddSuccessToastMessage(Messages.Category.Delete(name), new ToastrOptions() { Title = "İşlem Başarılı" });
 
             return RedirectToAction("Index", "Category", new { Area = "Admin" });
         }
-        public async Task<IActionResult> UndoDelete(int categoryId)
-        {
-            var name = await categoryService.UndoDeleteCategoryAsync(categoryId);
-            toast.AddSuccessToastMessage(Messages.Category.Delete(name), new ToastrOptions() { Title = "İşlem Başarılı" });
 
-            return RedirectToAction("Index", "Category", new { Area = "Admin" });
-        }
     }
 }

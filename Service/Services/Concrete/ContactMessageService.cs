@@ -25,6 +25,8 @@ namespace Service.Services.Concrete
         public async Task CreateContactMessageAsync(ContactMessageAddDto contactMessageAddDto)
         {
             var contactMessage = new ContactMessage(contactMessageAddDto.FullName, contactMessageAddDto.Email, contactMessageAddDto.PhoneNumber, contactMessageAddDto.Message);
+            contactMessage.CreatedDate = DateTime.Now;
+            contactMessage.IsDeleted = false;
             await unitOfWork.GetRepository<ContactMessage>().AddAsync(contactMessage);
             await unitOfWork.SaveAsync();
         }

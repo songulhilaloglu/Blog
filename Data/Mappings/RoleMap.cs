@@ -50,14 +50,8 @@ namespace Data.Mappings
                 Name = "Admin",
                 NormalizedName = "ADMIN",
                 ConcurrencyStamp = Guid.NewGuid().ToString()
-            },
-            new AppRole
-            {
-                Id = 3,
-                Name = "User",
-                NormalizedName = "USER",
-                ConcurrencyStamp = Guid.NewGuid().ToString()
-            });
+            }
+            );
         }
     }
 }

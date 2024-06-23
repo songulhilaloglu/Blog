@@ -18,7 +18,7 @@
                     {
                         <div id="banner-text" class="col-md-12 text-c  ">
                             <div class="left-borders">
-                                <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s">@banner.Title </p>
+                                <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s" >@banner.Title </p>
                                 <h5 class="wow fadeInUp main-h" data-wow-delay="0.2s">@banner.Subtitle  </h5>
                             </div>
                             <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s">@banner.Description</p>
@@ -33,9 +33,9 @@
                             <div class="servise-top wow fadeInUp">
                                 <img src="~/star-law-master/assets/images/service_c.png">
                             </div>
-                            <h2 class="unify"> Established  &<br> business litigation </h2>
+                            <h2 class="unify"> Boşanma & Nafaka Davaları </h2>
                             <div class="button-div">
-                                <a href="" class="button-s"> Learn more   </a>
+                                <a asp-controller="ContactMessage" asp-action="Add" class="button-s"> Daha fazlası </a>
                             </div>
                         </div>
                     </div>
@@ -44,9 +44,9 @@
                             <div class="servise-top wow fadeInUp">
                                 <img src="~/star-law-master/assets/images/service_d.png">
                             </div>
-                            <h2 class="unify"> REAL PROPERTY <br>LITIGATION </h2>
+                            <h2 class="unify">İDARİ & ASKERİ  <br /> DAVALAR</h2>
                             <div class="button-div">
-                                <a href="" class="button-s"> Learn more   </a>
+                                <a asp-controller="ContactMessage" asp-action="Add" class="button-s"> Daha fazlası </a>
                             </div>
                         </div>
                     </div>
@@ -55,9 +55,9 @@
                             <div class="servise-top wow fadeInUp">
                                 <img src="~/star-law-master/assets/images/service_e.png">
                             </div>
-                            <h2 class="unify"> PERSONAL INJURY <br>LITIGATION </h2>
+                            <h2 class="unify"> İŞ HUKUKU <br /> DAVALARI </h2>
                             <div class="button-div">
-                                <a href="" class="button-s"> Learn more   </a>
+                                <a asp-controller="ContactMessage" asp-action="Add" class="button-s"> Daha fazlası </a>
                             </div>
                         </div>
                     </div>
@@ -78,9 +78,9 @@
                 <div class="hed_img">
                     <img src="~/star-law-master/assets/images/headding-img.png">
                 </div>
-                <p class="about-bottom-s  wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;"> Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standar</p>
+                <p class="about-bottom-s  wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;"> Avukat Melda ÖZKARA , Hacettepe Üniversitesi Hukuk Fakültesi mezunu olup Ankara Barosunda stajını başarıyla tamamlamıştır. Melda ÖZKARA Hukuk ve Danışmanlık Bürosu’nun kurucu avukatlarındandır. Ankara Barosu’na kayıtlı olarak dinamik ve tecrübeli ekibiyle İzmir, İstanbul, Balıkesir, Van, Eskişehir gibi Türkiye'nin değişik illerinde birçok dosyada avukatlık mesleğini icra etmektedir.</p>
                 <div class="top-contact wow fadeInRight text-left" style="visibility: visible; animation-name: fadeInRight;">
-                    <a type="submit" id="#services" href="#services" class="btn btn-default wow fadeInUp  js-scroll-trigger button_about_shadow" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">DEVAMINI OKU </a>
+                    <a type="submit" id="#services" asp-controller="About" asp-action="Index" class="btn btn-default wow fadeInUp  js-scroll-trigger button_about_shadow" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">DEVAMINI OKU </a>
                 </div>
             </div>
             <div class="who_we_area col-md-6 col-sm-6 col-4pad wow fadeInUp">
@@ -136,11 +136,11 @@
     <div class="container">
         <div class="row text-center mb-60 ">
             <div class="title wow fadeInUp">
-                <h1>Practice Areas</h1>
+                <h1>Çalışma Alanları</h1>
                 <div class="hed_img">
                     <img src="~/star-law-master/assets/images/headding-img.png">
                 </div>
-                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem <br> Ipsum has been the industry's standard.  </p>
+                <p> Avukat Melda ÖZKARA Ankara Barosuna bağlı bir avukat olarak ağırlıklı Ankara ilinde çalışmakta olup İstanbul, İzmir, Balıkesir, Eskişehir, Van, Tunceli, Manisa gibi Türkiye'nin değişik birçok ilinde başarılı bir şekilde mesleğini icra etmiş ve halen etmektedir.  </p>
             </div>
         </div>
         <div class="row about_row  py-40">
@@ -150,10 +150,10 @@
                     <div class="servise-top wow fadeInUp">
                         <img src="~/star-law-master/assets/images/service1.png">
                     </div>
-                    <h2 class="Practice"> Criminal Law </h2>
-                    <p class="bottom-s">Our criminal defense attorneys will <br>protect your rights in court. </p>
+                    <h2 class="Practice"> Ceza Hukuku </h2>
+                    <p class="bottom-s">Ceza avukatı, her toplum yazılı ve yazısız kurallarıyla ihlal <br /> edenlere karşı insanları korumaktadır. </p>
                     <div class="button-div">
-                        <a href="" class="button-buttom"> read more   </a>
+                       @*  <a href="" class="button-buttom"> read more   </a> *@
                     </div>
                 </div>
             </div>
@@ -162,10 +162,10 @@
                     <div class="servise-top wow fadeInUp">
                         <img src="~/star-law-master/assets/images/service2.png">
                     </div>
-                    <h2 class="Practice"> Property Law </h2>
-                    <p class="bottom-s">Our criminal defense attorneys will <br>protect your rights in court.  </p>
+                    <h2 class="Practice"> Miras Hukuku </h2>
+                    <p class="bottom-s">Mirasbırakanın ölümü ile sona ermeyen hak ve borçlara ilişkin hukuki durumları düzenleyen hukuk dalıdır.  </p>
                     <div class="button-div">
-                        <a href="" class="button-buttom"> read more   </a>
+                     @*    <a href="" class="button-buttom"> read more   </a> *@
                     </div>
                 </div>
             </div>
@@ -174,10 +174,10 @@
                     <div class="servise-top wow fadeInUp">
                         <img src="~/star-law-master/assets/images/service3.png">
                     </div>
-                    <h2 class="Practice"> Personal Injury </h2>
-                    <p class="bottom-s">Our criminal defense attorneys will <br>protect your rights in court.  </p>
+                    <h2 class="Practice"> Medeni Hukuk </h2>
+                    <p class="bottom-s">İçerisinde Kişiler Hukuku, Aile Hukuku, Miras Hukuku, Borçlar Hukuku ve Eşya Hukukunu barındırır. </p>
                     <div class="button-div">
-                        <a href="" class="button-buttom"> read more   </a>
+                        @* <a href="" class="button-buttom"> read more   </a> *@
                     </div>
                 </div>
             </div>
@@ -190,10 +190,10 @@
                     <div class="servise-top wow fadeInUp">
                         <img src="~/star-law-master/assets/images/service4.png">
                     </div>
-                    <h2 class="Practice"> Commercial  Law </h2>
-                    <p class="bottom-s">Our criminal defense attorneys will <br>protect your rights in court. </p>
+                    <h2 class="Practice"> İş Hukuku </h2>
+                    <p class="bottom-s"> İşçi ile işveren arasındaki ilişkinin <br> düzenlendiği bir hukuk dalıdır.</p>
                     <div class="button-div">
-                        <a href="" class="button-buttom"> read more   </a>
+                        @* <a href="" class="button-buttom"> read more   </a> *@
                     </div>
                 </div>
             </div>
@@ -202,10 +202,10 @@
                     <div class="servise-top wow fadeInUp">
                         <img src="~/star-law-master/assets/images/service5.png">
                     </div>
-                    <h2 class="Practice">Money Laundering   </h2>
-                    <p class="bottom-s">Our criminal defense attorneys will <br>protect your rights in court.  </p>
+                    <h2 class="Practice">Gayrimenkul Hukuku  </h2>
+                    <p class="bottom-s">Kişilerin anayasal hakları olan mülkiyet edinme yolunda yapacakları tasarrufları koruyan hukuk dalıdır. </p>
                     <div class="button-div">
-                        <a href="" class="button-buttom"> read more   </a>
+                      @*   <a href="" class="button-buttom"> read more   </a> *@
                     </div>
                 </div>
             </div>
@@ -214,10 +214,10 @@
                     <div class="servise-top wow fadeInUp">
                         <img src="~/star-law-master/assets/images/service6.png">
                     </div>
-                    <h2 class="Practice"> Drug Offence </h2>
-                    <p class="bottom-s">Our criminal defense attorneys will <br>protect your rights in court.  </p>
+                    <h2 class="Practice"> Yabancılar Hukuku </h2>
+                    <p class="bottom-s">Türkiye’de bulunan yabancı ülke vatandaşları için, yabancı olmaları nedeniyle konulmuş olan kuralların tümünü ifade eder. </p>
                     <div class="button-div">
-                        <a href="" class="button-buttom"> read more   </a>
+                        @* <a href="" class="button-buttom"> read more   </a> *@
                     </div>
                 </div>
             </div>
@@ -226,83 +226,16 @@
     </div>
 </div>
 <!-- End About Us Area -->
-<!--start team Area -->
-<section class="bg_gradient_team PB_100">
-    <div class="container">
-        <div class="row text-center  ">
-            <div class="title wow fadeInUp">
-                <h1>Our Attorneys</h1>
-                <div class="hed_img">
-                    <img src="~/star-law-master/assets/images/headding-img.png">
-                </div>
-                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem <br> Ipsum has been the industry's standard.  </p>
-            </div>
-        </div>
-        <div class="row about_row ">
-            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
-                <div class="blog box-radius">
-                    <div class="blog-img">
-                        <img src="~/star-law-master/assets/images/team-2.png" alt="">
-                    </div>
-                    <div class="team-content">
-                        <h3>DEVIS BILL </h3>
-                        <p>Business Lawyer</p>
-                        <div class="team-footer-social">
-                            <a href="" target="_blank"><i id="social-fb" class="fa fa-facebook fa-2x social"></i></a>
-                            <a href="" target="_blank"><i id="social-tw" class="fa fa-twitter fa-2x social"></i></a>
-                            <a href="" target="_blank"><i id="social-em" class="fa fa-instagram fa-2x social"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="blog box-radius">
-                    <div class="blog-img">
-                        <img src="~/star-law-master/assets/images/team-1.png" alt="">
-                    </div>
-                    <div class="team-content">
-                        <h3>JONATHAN LEE  </h3>
-                        <p>Criminal Lawyer</p>
-                        <div class="team-footer-social">
-                            <a href="" target="_blank"><i id="social-fb" class="fa fa-facebook fa-2x social"></i></a>
-                            <a href="" target="_blank"><i id="social-tw" class="fa fa-twitter fa-2x social"></i></a>
-                            <a href="" target="_blank"><i id="social-em" class="fa fa-instagram fa-2x social"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="blog  box-radius">
-                    <div class="blog-img">
-                        <img src="~/star-law-master/assets/images/team-3.png" alt="">
-                    </div>
-                    <div class="team-content">
-                        <h3>MARK LEE</h3>
-                        <p>Business Lawyer</p>
-                        <div class="team-footer-social">
-                            <a href="" target="_blank"><i id="social-fb" class="fa fa-facebook fa-2x social"></i></a>
-                            <a href="" target="_blank"><i id="social-tw" class="fa fa-twitter fa-2x social"></i></a>
-                            <a href="" target="_blank"><i id="social-em" class="fa fa-instagram fa-2x social"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--End team Area -->
 <!--start free consultation Area -->
 <div class="bg_free_img">
     <div class="ovrllay-bottom">
         <div class="container">
             <div class="row text-center py-90 ">
                 <div class="title wow fadeInUp">
-                    <h1 class="c_yellow">20 Years of Experience in Various Case</h1>
-                    <p class="c_f"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br> Lorem  Ipsum has been the industry's standard.  </p>
+                    <h1 class="c_yellow">10 Yıl Üzeri Deneyim</h1>
+                    <p class="c_f"> Avukat Melda ÖZKARA, ceza davaları, boşanma ve nafaka davaları, idari davalar, <br /> iş davaları, askeri davalar, trafik kazasına bağlı tazminat davaları <br /> gibi alanlarda avukatlık mesleğini icra etmektedir. </p>
                 </div>
-                <div class="btn-free wow fadeInRight text-center" style="visibility: visible; animation-name: fadeInRight;">
-                    <a type="submit" id="#services" href="#services" class="btn btn-default wow fadeInUp  btn_yellow" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">free consultation</a>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -405,6 +338,7 @@
 
 
         </div>
+        </div>
     </div>
 
 </section>
@@ -412,46 +346,7 @@
 
 <!-- DivTable.com -->
 <!--End Why Choose Us Area -->
-<!--#Our Testimonial Area start-->
-<div id="testimonials" class="testimonial_area py-70  bg_testimonial_img wow fadeInUp ">
-    <div class="container ">
-        <div class="row">
-            <div class="col-md-7 text-left wow fadeInUp">
-                <h1 class="testimonial_top"> İnsanlar Ne Diyor? </h1>
-                <div class="testimonial_carosel">
-                    <div class="item">
-                        <div class="media">
-                            <img src="~/star-law-master/assets/images/testimonial-icone.png">
-                        </div>
-                        <p>  Hukuk, tutkudan arınmış mantıktır.  </p>
-                        <div class="media-body text-center">
-                            <h4 class="body-slider media-heading">- Aristo </h4>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="media">
-                            <img src="~/star-law-master/assets/images/testimonial-icone.png">
-                        </div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard  </p>
-                        <div class="media-body text-center">
-                            <h4 class="body-slider media-heading">- by bittu Lee, Company CEO  </h4>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="media">
-                            <img src="~/star-law-master/assets/images/testimonial-icone.png">
-                        </div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard  </p>
-                        <div class="media-body text-center">
-                            <h4 class="body-slider media-heading">- by bittu Lee, Company CEO  </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--#End Our testimonial Area -->
+
 <!--#Our Partners Area -->
 <div class="our_partners_area bg-parthners py-70 ">
     <div class="container">
@@ -468,53 +363,8 @@
 </div>
 <!--#End Our Partners Area -->
 <!--start Why Choose Us Area -->
-<section class="">
-    <div class="container">
-        <div class="row text-center  ">
-            <div class="title wow fadeInUp">
-                <h1>News & Resources</h1>
-                <div class="hed_img">
-                    <img src="~/star-law-master/assets/images/headding-img.png">
-                </div>
-                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem <br> Ipsum has been the industry's standard.  </p>
-            </div>
-        </div>
-        <div class="row about_row ">
-            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
-                <a href="blog-single.html"> <img src="~/star-law-master/assets/images/blog/blog-home-1.png"></a>
-                <div class="blog-body">
-                    <h1> <a href="blog-single.html"> Lorem Ipsum is simply  </a>    </h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting<br> industry.    </p>
-                    <div class="">
-                        <a href="blog-single.html" class="button-buttom"> read more   </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4  wow fadeInUp">
-                <a href="blog-single.html">
-                    <img src="~/star-law-master/assets/images/blog/blog-home-2.png">
-                </a>
-                <div class="blog-body">
-                    <h1> <a href="blog-single.html"> Lorem Ipsum is simply  </a>    </h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting   <br>industry.    </p>
-                    <div class="">
-                        <a href="blog-single.html" class="button-buttom"> read more   </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp">
-                <a href="blog-single.html">
-                    <img src="~/star-law-master/assets/images/blog/blog-home-3.png">
-                </a>
-                <div class=" blog-body">
-                    <h1> <a href="blog-single.html"> Lorem Ipsum is simply  </a>    </h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting <br>industry.    </p>
-                    <div class="">
-                        <a href="blog-single.html" class="button-buttom"> read more   </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+
 @await Component.InvokeAsync(typeof(WEB.ViewComponents.FooterViewComponent))
+
+

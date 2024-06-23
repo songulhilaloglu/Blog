@@ -1,0 +1,18 @@
+﻿@using Entity.DTOs.Categories
+@model List<CategoryDto>
+
+<div class="category-wrap mb-30 wow fadeInUp">
+    <h3 class="sidebar-title">Kategoriler</h3>
+    <ul>
+        @foreach(var category in Model) {
+            <li>@category.Name</li>
+        }
+        @* <li><a href="#">Investments</a></li>
+        <li><a href="#">Budgets</a></li>
+        <li><a href="#">Accounting</a></li>
+        <li><a href="#">Portfolios</a></li>
+        <li><a href="#">Wealth</a></li>
+        <li><a href="#">Business</a></li>
+        <li><a href="#">Corporate</a></li> *@
+    </ul>
+</div>

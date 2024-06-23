@@ -43,8 +43,10 @@ namespace Service.Services.Concrete
 
         public async Task<IdentityResult> CreateUserAsync(UserAddDto userAddDto)
         {
+            
             var map = mapper.Map<AppUser>(userAddDto);
             map.UserName = userAddDto.Email;
+            
             var result = await userManager.CreateAsync(map, string.IsNullOrEmpty(userAddDto.Password) ? "" : userAddDto.Password);
             if (result.Succeeded)
             {
@@ -54,16 +56,6 @@ namespace Service.Services.Concrete
             }
             else
                 return result;
-        }
-
-        public async Task<(IdentityResult identityResult, string? email)> DeleteUserAsync(int userId)
-        {
-            var user = await GetAppUserByIdAsync(userId);
-            var result = await userManager.DeleteAsync(user);
-            if (result.Succeeded)
-                return (result, user.Email);
-            else
-                return (result, null);
         }
 
         public async Task<List<AppRole>> GetAllRolesAsync()
@@ -98,87 +90,6 @@ namespace Service.Services.Concrete
             return string.Join("", await userManager.GetRolesAsync(user));
         }
 
-        public async Task<IdentityResult> UpdateUserAsync(UserUpdateDto userUpdateDto)
-        {
-            var user = await GetAppUserByIdAsync(userUpdateDto.Id);
-            var userRole = await GetUserRoleAsync(user);
 
-            var result = await userManager.UpdateAsync(user);
-            if (result.Succeeded)
-            {
-                await userManager.RemoveFromRoleAsync(user, userRole);
-                var findRole = await roleManager.FindByIdAsync(userUpdateDto.RoleId.ToString());
-                await userManager.AddToRoleAsync(user, findRole.Name);
-                return result;
-            }
-            else
-                return result;
-        }
-
-        public async Task<UserProfileDto> GetUserProfileAsync()
-        {
-            var userId = _user.GetLoggedInUserId();
-
-            var getUserWithImage = await unitOfWork.GetRepository<AppUser>().GetAsync(x => x.Id == userId, x => x.Image);
-            var map = mapper.Map<UserProfileDto>(getUserWithImage);
-            map.Image.FileName = getUserWithImage.Image.FileName;
-
-            return map;
-        }
-
-        private async Task<int> UploadImageForUser(UserProfileDto userProfileDto)
-        {
-            var userEmail = _user.GetLoggedInEmail();
-
-            var imageUpload = await imageHelper.Upload($"{userProfileDto.FirstName}{userProfileDto.LastName}", userProfileDto.Photo, ImageType.User);
-            Image image = new(imageUpload.FullName, userProfileDto.Photo.ContentType, userEmail);
-            await unitOfWork.GetRepository<Image>().AddAsync(image);
-
-            return image.Id;
-        }
-
-        public async Task<bool> UserProfileUpdateAsync(UserProfileDto userProfileDto)
-        {
-            var userId = _user.GetLoggedInUserId();
-            var user = await GetAppUserByIdAsync(userId);
-
-            var isVerified = await userManager.CheckPasswordAsync(user, userProfileDto.CurrentPassword);
-            if (isVerified && userProfileDto.NewPassword != null)
-            {
-                var result = await userManager.ChangePasswordAsync(user, userProfileDto.CurrentPassword, userProfileDto.NewPassword);
-                if (result.Succeeded)
-                {
-                    await userManager.UpdateSecurityStampAsync(user);
-                    await signInManager.SignOutAsync();
-                    await signInManager.PasswordSignInAsync(user, userProfileDto.NewPassword, true, false);
-
-                    mapper.Map(userProfileDto, user);
-
-                    if (userProfileDto.Photo != null)
-                        user.ImageId = await UploadImageForUser(userProfileDto);
-
-                    await userManager.UpdateAsync(user);
-                    await unitOfWork.SaveAsync();
-
-                    return true;
-                }
-                else
-                    return false;
-            }
-            else if (isVerified)
-            {
-                await userManager.UpdateSecurityStampAsync(user);
-                mapper.Map(userProfileDto, user);
-
-                if (userProfileDto.Photo != null)
-                    user.ImageId = await UploadImageForUser(userProfileDto);
-
-                await userManager.UpdateAsync(user);
-                await unitOfWork.SaveAsync();
-                return true;
-            }
-            else
-                return false;
-        }
     }
 }

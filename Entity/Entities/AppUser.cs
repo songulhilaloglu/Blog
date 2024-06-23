@@ -14,9 +14,7 @@ namespace Entity.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public int ImageId { get; set; } 
-        public Image Image { get; set; }
-
         public ICollection<Blog> Blogs { get; set; }
+
     }
 }

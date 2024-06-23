@@ -18,7 +18,7 @@ namespace Data.Mappings
                     new Category
                     {
                         Id = 1,
-                        Name = "Kategori1",
+                        Name = "Ceza Davaları",
                         CreatedBy = "Songül Hilaloğlu",
                         CreatedDate = DateTime.Now,
                         IsDeleted = false
@@ -26,7 +26,7 @@ namespace Data.Mappings
                     new Category
                     {
                         Id = 2,
-                        Name = "Kategori2",
+                        Name = "Boşanma ve Nafaka Davaları",
                         CreatedBy = "Songül Hilaloğlu",
                         CreatedDate = DateTime.Now,
                         IsDeleted = false
@@ -34,7 +34,16 @@ namespace Data.Mappings
                     new Category
                     {
                         Id = 3,
-                        Name = "Kategori3",
+                        Name = "Trafik Kazalarına Bağlı Maddi ve Manevi Tazminatlar",
+                        CreatedBy = "Songül Hilaloğlu",
+                        CreatedDate = DateTime.Now,
+                        IsDeleted = false
+                    }
+                    ,
+                    new Category
+                    {
+                        Id = 4,
+                        Name = "İş Davaları",
                         CreatedBy = "Songül Hilaloğlu",
                         CreatedDate = DateTime.Now,
                         IsDeleted = false

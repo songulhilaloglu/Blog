@@ -17,97 +17,50 @@
                     <div id="banner-text" class="col-md-12 text-c  ">
                         <div class="left-borders">
                             <h5 class="wow fadeInUp main-about_h" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">BLOGLAR</h5>
-                            <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
-                                <span class="c_yellow">
-                                    BLOGLAR
-                                </span>  | ORR <br>AND ITS ATTORNEYS
-                            </p>
+                            
                         </div>
 
                     </div>
-                    <!-- /#banner-text End -->
                 </div>
-
             </div>
         </section>
     </div>
 </div>
-
-<!-- /#banner end -->
-<!-- #blog Us Area start -->
-
 <section class="blog-area ptb-140 bg-1">
     <div class="container">
         <div class="row">
-           @*  @foreach (var blog in Model.Blogs)
-            {
-                <input type="hidden" id="keyword" value="@Model.CurrentPage" />
-                <div class="col-md-4 col-sm-6 col-xs-12 col">
-                    <div class="blog-wrap mb-30">
-                        <div class="blog-img">
-                            <img src="~/star-law-master/assets/images/blog/1.jpg" alt="">
-                        </div>
-                        <div class="blog-content wow fadeInUp">
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i>@blog.CreatedBy</a></li>
-                                    <li><a href="#"><i class="fa fa-comment"></i> 5 Comment</a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i> 5 Love</a></li>
-                                </ul>
-                            </div>
-                            <h3><a href="blog-single.html">@blog.Title</a></h3>
-                            <p>@(blog.Content.Length > 100 ? blog.Content.Substring(0, 100) : blog.Content) ...</p>
-                            <a href="blog-single.html" class="btn btn-default btn_font_16">Devamını oku </a>
-                        </div>
-                    </div>
-                </div>
-            } *@
-           @*  @foreach (var blog in Model.Blogs)
-            {
-                <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp">
-                    <div class="blog-wrap  mb-30">
-                        <div class="blog-img">
-                            <img src="~/star-law-master/assets/images/blog/2.jpg" alt="">
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i>@blog.CreatedBy</a></li>
-                                    <li><a href="#"><i class="fa fa-comment"></i> 5 Comment</a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i> 5 Love</a></li>
-                                </ul>
-                            </div>
-                            <h3><a href="blog-single.html">@(blog.Title.Length > 50 ? blog.Title.Substring(0, 50) : blog.Title)</a></h3>
-                            <p>@(blog.Content.Length > 100 ? blog.Content.Substring(0, 100) : blog.Content) ...</p>
-            <a asp-controller="Blog" asp-action="BlogDetail" asp-route-id="@blog.Id" class="btn btn-default btn_font_16">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            } *@
-            
+        
             @foreach (var blog in Model.Blogs)
             {
                 <div class="col-md-4 col-sm-6 col-xs-12 mt-50 wow fadeInUp">
                     <div class="blog-wrap  mb-30">
                         <div class="blog-img">
-                            <img src="~/images/@blog.Image.FileName" alt="">
+                            @{
+                                string imagePath = "/star-law-master/assets/images/blog/1.jpg"; // Varsayılan resim yolu
+                                if (blog != null && blog.Image != null && !string.IsNullOrEmpty(blog.Image.FileName))
+                                {
+                                    imagePath = $"~/images/{blog.Image.FileName}"; // Blogun resim yolunu ~ ile başlatarak alır
+                                }
+                            }
+
+                            <img src="@Url.Content(imagePath)" alt="Blog Resmi" >
+
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-user"></i>Admin</a></li>
-                                    <li><a href="#"><i class="fa fa-comment"></i> 5 Comment</a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i> 5 Love</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i>@blog.CreatedBy</a></li>
+   
+                                    <li><a href="#"><i class="fa fa-heart"></i>@blog.ViewCount defa görüntülendi</a></li>
                                 </ul>
                             </div>
-                            <h3><a href="blog-single.html">@blog.Title</a></h3>
-                            <p>@(blog.Content.Length > 100 ? blog.Content.Substring(0, 100) : blog.Content) ...</p>
+                            <h3><a href="blog-single.html">@(blog.Title.Length > 35 ? blog.Title.Substring(0,35) : blog.Title)..</a></h3>
+                            <p>@Html.Raw((blog.Content.Length > 100 ? blog.Content.Substring(0, 100) : blog.Content))  ...</p>
                             <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="btn btn-default btn_font_16">Devamını oku</a>
                         </div>
                     </div>
                 </div>
             }
-           
             
             <div class="col-xs-12">
                 <div class="pagination-wrap mt-50 wow fadeInUp">
@@ -123,10 +76,6 @@
                             </li>
                         }
                         
-                        @* <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li> *@
                         @if (Model.ShowNext)
                         {
                             <li><a asp-route-currentPage="@(Model.CurrentPage + 1)" asp-route-pageSize="@Model.PageSize"><i class="fa fa-angle-right"></i></a></li>
@@ -137,5 +86,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> 
+
+
 @await Component.InvokeAsync(typeof(WEB.ViewComponents.FooterViewComponent))

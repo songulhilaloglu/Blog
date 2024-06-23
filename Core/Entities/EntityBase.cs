@@ -16,5 +16,6 @@ namespace Core.Entities
         public virtual DateTime? ModifiedDate { get; set; }
         public virtual DateTime? DeletedDate { get; set; }
         public virtual bool IsDeleted { get; set; } = false;
+        
     }
 }

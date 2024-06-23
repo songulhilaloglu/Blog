@@ -28,9 +28,11 @@ namespace Data.Context
         public DbSet<ContactMessage> ContactMessages { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<Visitor> Visitors { get; set; }
+        public DbSet<BlogVisitor> BlogVisitors { get; set; }
 
         //Assembly: Katmanın adıdır.
-        //ApplyConfigurationsFromAssembly sayesinde IEntityTypeConfiguration dan katılım alan tüm classlarda mapping yapacaktır. Tek tek yapmak yerine tek seferde tüm classlarda geçerli olur.
+        //ApplyConfigurationsFromAssembly sayesinde IEntityTypeConfiguration dan kalıtım alan tüm classlarda mapping yapacaktır. Tek tek yapmak yerine tek seferde tüm classlarda geçerli olur.
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

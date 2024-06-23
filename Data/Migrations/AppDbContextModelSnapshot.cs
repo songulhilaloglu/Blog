@@ -68,11 +68,11 @@ namespace Data.Migrations
                         new
                         {
                             Id = 1,
-                            Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Etiam sit amet nisl purus in mollis nunc. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Lacus sed turpis tincidunt id aliquet risus feugiat in. Tortor id aliquet lectus proin nibh nisl condimentum. Mollis aliquam ut porttitor leo. Dis parturient montes nascetur ridiculus. Bibendum enim facilisis gravida neque convallis a cras semper auctor. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. Ut eu sem integer vitae justo. Ut morbi tincidunt augue interdum velit. Ut porttitor leo a diam sollicitudin tempor id eu. Pellentesque dignissim enim sit amet venenatis urna cursus eget.",
+                            Content = "Melda ÖZKARA Hukuk & Danışmanlık olarak, hukukun çeşitli alanlarında hizmet vermektedir. Kurucumuz Avukat Melda ÖZKARA ile hukuk alanındaki akademik ve profesyonel temellerimizi atmış bulunmaktayız. Ceza hukuku, idare hukuku, sigorta hukuku, aile hukuku ve miras hukuku olmak üzere geniş bir yelpazede hizmet sunuyoruz. Ankara, İzmir, Denizli, Balıkesir, Van, Eskişehir, İstanbul gibi Türkiyenin değişik birçok illerinde çeşitli dosyalarda çalışmakta, davalarda avukatlık hizmeti verilmektedir. \r\n\r\nMisyonumuz, müvekkillerimizin hukuki süreçlerde karşılaştıkları zorluklar karşısında güvenilir ve etkin çözümler üretmek, onların haklarını en üst düzeyde temsil etmektir. Adaletin temsil edildiği her alanda, müvekkillerimizin yanında olmayı ilke edinmiş bir hukuk bürosuyuz. Her bir dava ve müvekkilimizle özel olarak ilgilenir, onların ihtiyaç ve beklentilerine göre şekillenen hukuki stratejiler geliştiririz.\r\n\r\nVizyonumuz, hukukun sunduğu imkanları en doğru ve etkili şekilde kullanarak müvekkillerimizin yaşam kalitesini artırmak ve hukuki süreçlerini olabildiğince sorunsuz bir şekilde yönetmektir. Melda ÖZKARA Hukuk & Danışmanlık olarak, sürekli eğitim ve gelişim içinde olan bir ekip olarak, yasal mevzuatlardaki güncellemeleri takip eder, bu bilgiler ışığında müvekkillerimize en güncel ve doğru bilgiyi sunmayı hedefleriz.\r\n\r\nHukuk büromuz, etik değerlere sıkı sıkıya bağlı kalarak, her zaman şeffaflık ve dürüstlük ilkeleri üzerine kurulu bir hizmet anlayışı benimsemiştir. Melda ÖZKARA Hukuk & Danışmanlık, sizin ve sevdiklerinizin haklarını koruyacak, adaletli çözümler sunacak güvenilir bir ortağınızdır.",
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(2954),
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(3457),
                             IsDeleted = false,
-                            Title = "Songül Hilaloğlu"
+                            Title = "Avukat Melda Özkara"
                         });
                 });
 
@@ -109,23 +109,16 @@ namespace Data.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "ef8b1c99-5685-43ef-a2c2-0652123a58fe",
+                            ConcurrencyStamp = "961e80cb-b38b-48b4-8bda-0a6aaab0d018",
                             Name = "Superadmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "767fdc74-cca2-45c4-88cf-1d0e44b8d624",
+                            ConcurrencyStamp = "fc9c6ff7-2ec9-4c2f-a5c1-9caba3493530",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ConcurrencyStamp = "9f3cd10c-d4fb-46fe-8844-a4dec1a8e312",
-                            Name = "User",
-                            NormalizedName = "USER"
                         });
                 });
 
@@ -179,7 +172,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ImageId")
+                    b.Property<int?>("ImageId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -238,19 +231,18 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c5a71885-9861-4f67-afc0-51391ced80d8",
+                            ConcurrencyStamp = "4efb9d16-3232-40cd-a742-a470df2db86a",
                             Email = "superadmin@hotmail.com",
                             EmailConfirmed = true,
                             FirstName = "Songül",
-                            ImageId = 1,
                             LastName = "Hilaloğlu",
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@HOTMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@HOTMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECNDBsQ68rc5hXyFGft1vXySe0mLSRnFxGME7xlSDJWr3Lp8YrPiUCY5HCis3Ys38w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBHA5qKnIa5nimn2t2+YQp2HUtaGfqE5i582Cf0GTSnhLg3KdOSfHm8JjQImGpqDXQ==",
                             PhoneNumber = "+905335028317",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "46468ba5-c7e1-4e76-9419-81b2a5de5a9d",
+                            SecurityStamp = "92894cab-1660-4b1b-a87f-97afbe0e9edb",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@hotmail.com"
                         },
@@ -258,19 +250,18 @@ namespace Data.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4a955270-7ce4-4a79-bee1-25c3bac1a6d6",
+                            ConcurrencyStamp = "63427c5a-b739-4ffe-a79e-0a0edd066075",
                             Email = "admin@hotmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
-                            ImageId = 1,
                             LastName = "Kullanıcısı",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@HOTMAIL.COM",
                             NormalizedUserName = "ADMIN@HOTMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM5mssPt3zvvrFQrD2zkC+MRnoNMmwHN1ZxfUEcIuf9ZjjpQ3r4ULK4utlQ/DAWvqg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHXPVpLog50SeGdxe/bKQ06NimyhF1enyxzpjLernsH5yG5lfFQ0dj5t5OikOPNK0g==",
                             PhoneNumber = "+905335028310",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "54a5264d-47c0-411b-bda8-bce8e6eb0ec1",
+                            SecurityStamp = "049ba840-f3f1-492a-8249-4858f662811d",
                             TwoFactorEnabled = false,
                             UserName = "admin@hotmail.com"
                         });
@@ -425,12 +416,12 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(3274),
-                            Description = "LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING\r\nINDUSTRY. LOREM IPSUM HAS BEEN THE INDUSTRY'S STANDARD DUMMY TEXT\r\nEVER SINCE THE 1500S,",
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(4359),
+                            Description = "Ayrıca müvekkillerimize eksiksiz hizmet verebilmek için alanında uzman çeşitli akademisyenler ve mali müşavirlerle de yakın iş birliği içerisindeyiz.",
                             ImageId = 1,
                             IsDeleted = false,
-                            Subtitle = "Working Tirlessly\r\nToward Successful Resolutions",
-                            Title = "Dermatoloji Uzmanı :"
+                            Subtitle = "Müvekkillerimize en iyi hukuk hizmetini \r\n güvenilir ve hızlı bir şekilde sunmaktayız.",
+                            Title = "Hoşgeldiniz "
                         });
                 });
 
@@ -499,28 +490,82 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            Content = "Dolgu ve botox ile burun şekillendirme işlemi (benim verdiğim isimle) Likit Rhinoplasti‘nin temelde üç ana hedef kitlesi vardır;\r\n\r\nBurun operasyonu için yaşı çok genç olan kişiler,\r\nBurunlarında beğenmedikleri, şikayetçi oldukları şey için ameliyat olmaya gerek duymayanlar veya operasyondan çekinenler,\r\nBir ya da birkaç kere burun operasyonu geçirmiş olup, yeni bir operasyon istenmeyenler.\r\nBurun; son derece sinirli ve ince bir damarsal ağ yapısına sahiptir. Özellikle arterlerin oldukça farklı varyasyonları göz önüne alınırsa, bu bölgede yapılacak işlemlerde anatomiye çok hakim olmak ve oldukça dikkatli ve tedbirli davranmak önemlidir.\r\n\r\nİşte, yüzlerce burun operasyonu yapmış bir plastik cerrah olmanın avantajı tam olarak burada ortaya çıkıyor.",
+                            Content = "5271 sayılı Ceza Muhakemesi Kanunu m.109/1, m.100/1 hükümlerine göre, tutuklama ve adli kontrol tedbirleri aynı koşullara bağlı kılınmıştır. Dolayısıyla; bir şüpheli veya sanık hakkında tutuklama kararı verilebilmesi veya kişinin adli kontrol altına alınabilmesi için, kuvvetli suç şüphesini gösteren somut deliller ve en az bir tutuklama nedeni mutlaka bulunmalıdır. Bu tedbirlerin uygulanabilmesi için gerekli olan bir diğer koşul ölçülülüktür.\r\n\r\n \r\n\r\n Adli kontrol tedbirlerinin uygulanabilmesi için, kuvvetli suç şüphesini gösteren somut delillerin bulunması Kanundan kaynaklanan bir zorunluluktur. AYM; bir kararında, konutu terk etmeme yükümlülüğüne tabi tutulması nedeniyle kişi hürriyeti ve güvenliği hakkının ihlal edildiğine karar vermiştir. Yüksek Mahkeme; somut olayda, başvurucunun terör örgütüne üye olma suçundan tutuklanmasını gerektirecek mahiyette yeterli delilin bulunmadığının Sulh Ceza Hakimliği kararında açıkça belirtildiğine ve adli kontrol tedbirinin devamına ilişkin Ağır Ceza Mahkemesi kararının herhangi bir gerekçe içermediğine dikkat çekmiştir. AYM’ ye göre, bireysel başvuru kapsamında yapılan incelemede, suç şüphesinin bulunmadığı yönündeki tespitin sorgulanması ve derece mahkemesinin yerine geçilerek tedbirin devamına ilişkin kararın gerekçelendirilmesi mümkün değildir (§ 34). AYM sonuç olarak, suç işlediğine dair kuvvetli belirtiler ortaya koyulmadan başvurucunun adli kontrol altına alınması nedeniyle Anayasa m.19/3’ün ihlal edildiğine karar vermiştir.NİHAİ OLARAK; bir şüpheli veya sanık hakkında tutuklama kararı verilebilmesi veya kişinin adli kontrol altına alınabilmesi için, kuvvetli suç şüphesini gösteren somut deliller ve en az bir tutuklama nedeni mutlaka bulunmalıdır. Bu tedbirlerin uygulanabilmesi için gerekli olan bir diğer koşul ölçülülüktür. Ölçülülük ilkesi göz ardı edilmemeli süresinde uzman bir avukat tarafından itiraz edilmelidir.\r\n\r\n \r\n\r\nDavalarınızda uzman ceza avukatından yardım almak hukuki açıdan sizi koruyacaktır. Detaylı bilgi için telefon numaramızdan (05061160225) bize ulaşabilirsiniz.",
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(3556),
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(4686),
                             ImageId = 1,
                             IsDeleted = false,
-                            Title = "Likit Rhinoplasti (Burun Dolgusu) Tehlikeli Mi?",
+                            Title = "Adli Kontrol Tedbirlerinde Ölçülülük Şartı",
                             UserId = 1,
-                            ViewCount = 15
+                            ViewCount = 0
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 2,
-                            Content = "Dudak küçük bir anatomik yapı olmasına rağmen yüzün merkezinde bulunması ve duygu durumunu anlık olarak yansıtan tüm mimiklere katılması nedeniyle büyük öneme sahiptir. Dudak dolgusu tahmin edildiği kadar basit ve hızlı bir işlem değildir. Bunun başlıca iki sebebi var;\r\n\r\nDinamik bir organ olması,\r\nÇok dar ve sınırlı bir hacme sahip olması,\r\nYapılan dolgu materyalinin tamamen dokuya entegre olmasını beklemek ve bunu göz önüne alarak birkaç seans şeklinde işlemi sürdürmek gerekir.\r\n\r\nDolayısıyla dudakların alacağı hacim ve kalınlaşma aslında dolguyu yerleştireceğiniz cebi sabırla genişletmek, sonrasında belli olacaktır. Her dudak “istenildiği” ya da “beklenildiği” kadar kalınlaşmaz. Dudak dolgusunu tek seansta ve yüksek dozda uygulamaya çalışmak bu dinamik ve hassas bölgenin bütün dinamiğini geri dönüşümsüz olarak bozar.\r\nSonuç olarak dudak dolgusu zannedildiği kadar kolay, hızlı ve sonuçları memnun edici bir işlem değildir, hatta tecrübesiz ellerde çok büyük hayal kırıklığına sebep olabilir.",
+                            Content = "Özel okullarda görev yapan öğretmenler 5580 Sayılı “Özel Öğretim Kurumları Kanununu” kapsamında İş Kanununa tabi olarak çalışmaktadır. 5580 Sayılı Kanun’un 9. Maddesinde özel eğitim kurumlarında çalışan öğretmenlerin iş sözleşmelerinin nasıl yapılacağı ve ekonomik, sosyal haklarına ilişkin düzenlemeler yer almaktadır. İlgili Maddenin 1. Fıkrasında “Kurumlarda çalışan yönetici, öğretmen, uzman öğretici ve usta öğreticiler ile kurucu veya kurucu temsilcisi arasında yapılacak iş sözleşmesi, en az bir takvim yılı süreli olmak üzere yönetmelikle belirtilen esaslara göre yazılı olarak yapılır.” denmektedir.\r\n\r\n \r\n\r\nBelirli süreli iş sözleşmelerinin tanımı 4857 sayılı İş Kanunu’nun 11/I hükmünde; “Belirli süreli işlerde veya belli bir işin tamamlanması veya belirli bir olgunun ortaya çıkması gibi objektif koşullara bağlı olarak işveren ile işçi arasında yazılı şekilde yapılan iş sözleşmesi” şeklinde yapılmıştır. İş Kanunu’nun 11.maddesinin “İş ilişkisinin bir süreye bağlı olarak yapılmadığı halde sözleşme belirsiz süreli sayılır.” ifadesi belirli süreli iş sözleşmelerinin istisnai niteliğini göstermektedir. Bir iş sözleşmesinin türü ile ilgili tereddüt hâsıl oldu ise sözleşmenin belirsiz süreli olduğunun kabul edilmesi gereklidir. Belirli süreli iş sözleşmesi, esaslı bir neden olmadıkça, birden fazla üst üste (zincirleme) yapılamaz. Aksi halde iş sözleşmesi başlangıçtan itibaren belirsiz süreli kabul edilir.",
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(3560),
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(4693),
                             ImageId = 1,
                             IsDeleted = false,
-                            Title = "Dudaklarınız Dolgu İçin Uygun Mu?",
+                            Title = "Özel Okul Öğretmenlerinin Hakları",
                             UserId = 1,
                             ViewCount = 10
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 2,
+                            Content = "Türk Medeni Kanunu‘nun 174. maddesi gereğince, boşanmadan önce eğer bir kişi evlilik birliği içinde sadakat yükümlülüğünü ihlal etmişse ve bu durum diğer eşte manevi zarara yol açmışsa, zarar gören eş tazminat talep edebilir. Peki bu yükümlülük ihlalinin boşanma sonrasında öğrenilmesi durumunda ne olur?\r\n\r\n \r\n\r\nAldatıldığını Boşanmadan Sonra Öğrenen Birisi Hangi Hükümlere Göre Tazminat İsteyebilir?\r\nAnlaşmalı boşanma durumunda tarafların birbirlerine karşı olan yükümlülüklerinden feragat ettikleri kabul edilir. Fakat boşanma sonrasında öğrenilen ihlal durumunda Aile Hukuku kapsamında bir manevi tazminat değil, Borçlar Hukukuna dayanan bir tazminat talep edilebilecektir. Davacı burada Türk Borçlar Kanunu madde 49 ve 58 uyarınca ve ilgili Yargıtay Kararları uyarınca haksız fiile dayanarak bir manevi tazminat davası açabilecektir.\r\n\r\n“MADDE 49– Kusurlu ve hukuka aykırı bir fiille başkasına zarar veren, bu zararı gidermekle yükümlüdür. Zarar verici fiili yasaklayan bir hukuk kuralı bulunmasa bile, ahlaka aykırı bir fiille başkasına kasten zarar veren de, bu zararı gidermekle yükümlüdür.”\r\n\r\n“MADDE 58– Kişilik hakkının zedelenmesinden zarar gören, uğradığı manevi zarara karşılık manevi tazminat adı altında bir miktar para ödenmesini isteyebilir.”",
+                            CreatedBy = "Songül Hilaloğlu",
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(4698),
+                            ImageId = 1,
+                            IsDeleted = false,
+                            Title = "Boşanmadan Sonra Aldatıldığını Öğrenen Birisi Tazminat İsteyebilir mi?",
+                            UserId = 1,
+                            ViewCount = 8
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 2,
+                            Content = "İsim, kişinin kimliğinin ayrılmaz bir parçasıdır ve özgürce seçilme hakkına sahiptir. Ancak isim değişikliği talepleri, toplumsal düzenin sağlanması ve güvenliğin korunması açısından titizlikle ele alınmalıdır. Bu nedenle, isim değişikliği davalarında ismin değişmezliği ilkesi benimsenmiştir. Ancak, haklı sebeplere dayanarak isim değişikliğine izin verilmektedir.\r\n\r\n \r\n\r\nMedeni Kanunun ilgili maddesi, ismin değiştirilmesinin haklı sebeplere dayanılarak bir hakimden istenebileceğini belirtmektedir. Ancak hangi durumların haklı sebep sayılacağı belirtilmemiştir, bu da hakimin takdirine bağlıdır. Hakim, bu kararı verirken hukuka ve hakkaniyete uygun olarak hareket etmelidir.\r\n\r\n \r\n\r\nHakim, isim değişikliği talebinde bulunan kişinin sosyal durumu, aile ilişkileri ve diğer özel koşulları göz önünde bulundurarak karar vermelidir. Bu süreçte, ismin gülünç, çirkin, iğrenç veya ahlaka aykırı anlamlar taşıması, uygun olmaması veya zor telaffuz edilmesi, karışıklığa neden olması gibi durumlar dikkate alınır. Ayrıca, din veya uyruk değişikliği, ticari faaliyetleri veya kişinin ilerlemesini engelleyen durumlar da göz önünde bulundurulur.",
+                            CreatedBy = "Songül Hilaloğlu",
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(4702),
+                            ImageId = 1,
+                            IsDeleted = false,
+                            Title = "İsim ve Soyisim Değiştirme *2024",
+                            UserId = 1,
+                            ViewCount = 25
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 2,
+                            Content = "5490 sayılı Nüfus Hizmetleri Kanununun 36. maddesinde düzenlenen nüfus kaydının düzeltilmesi davası, hatalı veya yanlış nüfus kayıtlarının düzeltilmesi amacıyla açılan bir davadır. Bu dava genellikle nüfus müdürlüklerince yapılan maddi hataların düzeltilmesi, soybağı gibi hukuki ilişkilerin düzeltilmesi için açılır ve tarafların hukuki statülerini netleştirmeyi amaçlar.\r\n\r\nNüfus kaydının düzeltilmesi davası hangi durumlarda açılabilir?\r\nNüfus kaydının düzeltilmesi davası, kişisel bilgilerdeki yanlışlıkların (isim, soyisim, doğum tarihi, anne/baba adı gibi) düzeltilmesi için açılabilir. Bu dava, kayıtlı bilgilerin gerçeği yansıtmaması durumunda, kişinin hukuki durumunu ve kimlik bilgilerini doğru bir şekilde yansıtacak şekilde düzeltilmesini sağlamak için kullanılır.\r\n\r\nNüfus kaydındaki hangi hatalar düzeltilebilir?\r\nNüfus kaydındaki hatalar arasında isim, soyisim, doğum tarihi ve anne/baba adı gibi temel kişisel bilgilerin yanlış kaydedilmiş olması yer alır. Bu tür hatalar, ilgili kişinin hukuki statüsünü doğrudan etkileyebilecek önemli yanlışlıklardır ve düzeltilmesi için dava açılabilir.\r\n\r\n",
+                            CreatedBy = "Songül Hilaloğlu",
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(4706),
+                            ImageId = 1,
+                            IsDeleted = false,
+                            Title = "Nüfus kaydının düzeltilmesi davası nedir ve hangi amaçla açılır?",
+                            UserId = 1,
+                            ViewCount = 12
                         });
+                });
+
+            modelBuilder.Entity("Entity.Entities.BlogVisitor", b =>
+                {
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VisitorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BlogId", "VisitorId");
+
+                    b.HasIndex("VisitorId");
+
+                    b.ToTable("BlogVisitors");
                 });
 
             modelBuilder.Entity("Entity.Entities.Category", b =>
@@ -566,25 +611,33 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(3737),
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(9413),
                             IsDeleted = false,
-                            Name = "Kategori1"
+                            Name = "Ceza Davaları"
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(3741),
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(9421),
                             IsDeleted = false,
-                            Name = "Kategori2"
+                            Name = "Boşanma ve Nafaka Davaları"
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(3743),
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(9426),
                             IsDeleted = false,
-                            Name = "Kategori3"
+                            Name = "Trafik Kazalarına Bağlı Maddi ve Manevi Tazminatlar"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedBy = "Songül Hilaloğlu",
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(9431),
+                            IsDeleted = false,
+                            Name = "İş Davaları"
                         });
                 });
 
@@ -643,7 +696,7 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(3920),
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 195, DateTimeKind.Local).AddTicks(9870),
                             Email = "songulhilaloglu@hotmail.com",
                             FullName = "Songül Hilaloğlu",
                             IsDeleted = false,
@@ -699,11 +752,35 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             CreatedBy = "Songül Hilaloğlu",
-                            CreatedDate = new DateTime(2024, 6, 15, 12, 33, 27, 301, DateTimeKind.Local).AddTicks(4089),
-                            FileName = "images/testimage1",
+                            CreatedDate = new DateTime(2024, 6, 23, 14, 57, 46, 196, DateTimeKind.Local).AddTicks(587),
+                            FileName = "blog-images/default.jpg",
                             FileType = "jpg",
                             IsDeleted = false
                         });
+                });
+
+            modelBuilder.Entity("Entity.Entities.Visitor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IpAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserAgent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Visitors");
                 });
 
             modelBuilder.Entity("Entity.Entities.AppRoleClaim", b =>
@@ -717,13 +794,9 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Entity.Entities.AppUser", b =>
                 {
-                    b.HasOne("Entity.Entities.Image", "Image")
+                    b.HasOne("Entity.Entities.Image", null)
                         .WithMany("Users")
-                        .HasForeignKey("ImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Image");
+                        .HasForeignKey("ImageId");
                 });
 
             modelBuilder.Entity("Entity.Entities.AppUserClaim", b =>
@@ -802,9 +875,33 @@ namespace Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Entity.Entities.BlogVisitor", b =>
+                {
+                    b.HasOne("Entity.Entities.Blog", "Blog")
+                        .WithMany("BlogVisitors")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entity.Entities.Visitor", "Visitor")
+                        .WithMany("BlogVisitors")
+                        .HasForeignKey("VisitorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Blog");
+
+                    b.Navigation("Visitor");
+                });
+
             modelBuilder.Entity("Entity.Entities.AppUser", b =>
                 {
                     b.Navigation("Blogs");
+                });
+
+            modelBuilder.Entity("Entity.Entities.Blog", b =>
+                {
+                    b.Navigation("BlogVisitors");
                 });
 
             modelBuilder.Entity("Entity.Entities.Category", b =>
@@ -817,6 +914,11 @@ namespace Data.Migrations
                     b.Navigation("Blogs");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Entity.Entities.Visitor", b =>
+                {
+                    b.Navigation("BlogVisitors");
                 });
 #pragma warning restore 612, 618
         }

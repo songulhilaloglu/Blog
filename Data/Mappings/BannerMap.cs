@@ -18,9 +18,9 @@ namespace Data.Mappings
                      new Banner
                      {
                          Id = 1,
-                         Title = "Dermatoloji Uzmanı :",
-                         Subtitle = "Working Tirlessly\r\nToward Successful Resolutions",
-                         Description = "LOREM IPSUM IS SIMPLY DUMMY TEXT OF THE PRINTING AND TYPESETTING\r\nINDUSTRY. LOREM IPSUM HAS BEEN THE INDUSTRY'S STANDARD DUMMY TEXT\r\nEVER SINCE THE 1500S,",
+                         Title = "Hoşgeldiniz ",
+                         Subtitle = "Müvekkillerimize en iyi hukuk hizmetini \r\n güvenilir ve hızlı bir şekilde sunmaktayız.",
+                         Description = "Ayrıca müvekkillerimize eksiksiz hizmet verebilmek için alanında uzman çeşitli akademisyenler ve mali müşavirlerle de yakın iş birliği içerisindeyiz.",
                          ImageId = 1,
                          CreatedBy = "Songül Hilaloğlu",
                          CreatedDate = DateTime.Now,

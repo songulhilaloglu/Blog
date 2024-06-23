@@ -14,11 +14,7 @@
                     <div id="banner-text" class="col-md-12 text-c  ">
                         <div class="left-borders">
                             <h5 class="wow fadeInUp main-about_h" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">BLOG DETAYI</h5>
-                            <p class="banner-text wow fadeInUp main-h3" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
-                                <span class="c_yellow">
-                                    BLOG DETAYI
-                                </span>  | ORR <br>AND ITS ATTORNEYS
-                            </p>
+
                         </div>
 
                     </div>
@@ -35,15 +31,35 @@
             <div class="col-md-8 col-xs-12">
                 <div class="blog-details-wrap">
                     <div class="blog-details-img">
-                        <img src="~/star-law-master/assets/images/blog/blog-details.jpg" alt="" />
+                        <img src="@Model.Image.FileName" alt="">
+
+                        @{
+                            string imagePath = "/star-law-master/assets/images/blog/1.jpg"; // Varsayılan resim yolu
+                            if (Model != null && Model.Image != null && !string.IsNullOrEmpty(Model.Image.FileName))
+                            {
+                                imagePath = $"~/images/{Model.Image.FileName}"; // Blogun resim yolunu ~ ile başlatarak alır
+                            }
+                        }
+
+                        <img src="@Url.Content(imagePath)" alt="Blog Resmi">
                     </div>
                     <div class="blog-details-content wow fadeInUp">
                         <h3>@Model.Title</h3>
-                         <p>@Model.Content</p>
-                         <blockquote>@Model.Content</blockquote>
-
+                        <p>@Html.Raw((@Model.Content))</p>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 col wow fadeInUp">
+                <aside class="right-sidebar">
+                    <div class="search-sidebar mb-30">
+                       @*  <form action="#">
+                            <input type="text" name="search" placeholder="Search Here">
+                            <button type="button" name="button"><i class="fa fa-search"></i></button>
+                        </form> *@
+                    </div>
+                    @await Component.InvokeAsync("Categories")
+                    
+                </aside>
             </div>
         </div>
     </div>

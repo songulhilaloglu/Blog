@@ -4,11 +4,13 @@ using Entity.DTOs.Categories;
 using Entity.Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using Service.Services.Abstractions;
 using Service.Services.Concrete;
 using System.ComponentModel.DataAnnotations;
+using WEB.Consts;
 using WEB.ResultMessages;
 
 namespace WEB.Areas.Admin.Controllers
@@ -28,6 +30,8 @@ namespace WEB.Areas.Admin.Controllers
             this.validator = validator;
             this.toast = toast;
         }
+
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Index()
         {
             var abouts = await aboutService.GetAllAboutsAsync();
@@ -35,6 +39,7 @@ namespace WEB.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Update(int aboutId)
         {
             var about = await aboutService.GetAboutByIdAsync(aboutId);
@@ -43,6 +48,7 @@ namespace WEB.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Update(AboutUpdateDto aboutUpdateDto)
         {
             var map = mapper.Map<About>(aboutUpdateDto);

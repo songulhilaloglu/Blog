@@ -28,6 +28,7 @@ namespace Service.Extensions
             services.AddScoped<IBannerService, BannerService>();
             services.AddScoped<IContactMessageService, ContactMessageService>();
             services.AddScoped<IAboutService, AboutService>();
+            services.AddScoped<IDashboardService, DashboardService>();
 
             // Claim principal için
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

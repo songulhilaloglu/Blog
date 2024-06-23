@@ -8,8 +8,7 @@ namespace Entity.Enums
 {
     public enum ImageType
     {
-        User = 0, // login olan kullanıcının profil resminin tipidir
-        Post = 1, // oluşturulan blogun görselinin tipidir
-        Banner = 2
+        Other = 0,
+        Blog = 1 
     }
 }

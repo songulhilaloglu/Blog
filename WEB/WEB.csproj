@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\Admin\Views\Auth\test.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Areas\Admin\Views\Auth\test.cshtml" />
     <None Include="wwwroot\plus-admin\.DS_Store" />
     <None Include="wwwroot\plus-admin\.git\COMMIT_EDITMSG" />
     <None Include="wwwroot\plus-admin\.git\config" />
@@ -1221,7 +1216,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\plus-admin\.git\objects\info\" />
     <Folder Include="wwwroot\plus-admin\.git\objects\pack\" />
     <Folder Include="wwwroot\plus-admin\.git\refs\tags\" />
@@ -1241,14 +1235,6 @@
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Entity\Entity.csproj" />
     <ProjectReference Include="..\Service\Service.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Areas\Admin\Views\Auth\test.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Areas\Admin\Views\Auth\test.cshtml" />
   </ItemGroup>
 
 </Project>

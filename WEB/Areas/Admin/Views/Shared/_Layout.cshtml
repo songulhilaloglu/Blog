@@ -61,5 +61,6 @@
     <script src="~/plus-admin/assets/js/typeahead.js"></script>
     <script src="~/plus-admin/assets/js/select2.js"></script>
     @await Component.InvokeAsync("NToastNotify")
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

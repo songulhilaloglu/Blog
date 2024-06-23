@@ -2,8 +2,7 @@
 {
     public static class RoleConsts
     {
-        public const string Superadmin = "Superadmin";
-        public const string Admin = "Admin";
-        public const string User = "User";
+        public const string Superadmin = "Superadmin"; // Tüm sayfalara erişimi var
+        public const string Admin = "Admin"; // Sadece blog ekleme, güncelleme ve iletişim mesajlarını görme yetkisine erişimi var
     }
 }
