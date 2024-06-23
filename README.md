@@ -20,4 +20,13 @@ Blog eklerken textarea alanı için CK Editör kullanılmıştır.
 
 Bu projede geliştirmesi gereken en önemli alan blog resim ekleme ve güncelleme alanıdır.
 
+Admin Panel Kullanıcı Bilgileri:
+Kullanıcı: superadmin@hotmail.com 
+Şifre: 123456
+Rolü: Superadmin
+
+
+![image](https://github.com/songulhilaloglu/Blog/assets/103853967/a764d3cb-8a5e-4a55-a582-91fe620ccf95)
+
+![image](https://github.com/songulhilaloglu/Blog/assets/103853967/400870b9-edc8-4f14-958e-e5ebf83914fd)
 
