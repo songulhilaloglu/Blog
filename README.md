@@ -18,7 +18,7 @@ WEB katmanında admin area eklenmiştir, admin için plusadmin isimli template k
 Admin panelinde kullanıcıya işlemle ilgili bildirimleri göstermek için Install-Package NToastNotify kullanılmıştır.
 Blog eklerken textarea alanı için CK Editör kullanılmıştır.
 
-Bu projede geliştirmesi gereken en önemli alan blog resim ekleme ve güncelleme alanıdır.
+Bu projede geliştirmesi gereken en önemli alan blog resim ekleme ve güncelleme alanıdır. One-to-One, One-to-Many, Many-to-Many Relationships kullanılmıştır, database diagramı görsel olarak eklenmiştir.
 
 Admin Panel Kullanıcı Bilgileri:
 Kullanıcı: superadmin@hotmail.com 
