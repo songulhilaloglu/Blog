@@ -25,8 +25,13 @@ Kullanıcı: superadmin@hotmail.com
 Şifre: 123456
 Rolü: Superadmin
 
+![web](https://github.com/songulhilaloglu/Blog/assets/103853967/22b334df-d617-4b10-80bd-f9fd18ff49e8)
 
-![image](https://github.com/songulhilaloglu/Blog/assets/103853967/a764d3cb-8a5e-4a55-a582-91fe620ccf95)
+![admin](https://github.com/songulhilaloglu/Blog/assets/103853967/648144f5-0b9e-4582-b775-0f2541ad590e)
+
+![diagram](https://github.com/songulhilaloglu/Blog/assets/103853967/9d792496-2388-4b27-8980-d785eeae72d5)
+
+
 
 ![image](https://github.com/songulhilaloglu/Blog/assets/103853967/400870b9-edc8-4f14-958e-e5ebf83914fd)
 
