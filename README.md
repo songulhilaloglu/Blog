@@ -33,7 +33,3 @@ Rolü: Superadmin
 
 
 
-![image](https://github.com/songulhilaloglu/Blog/assets/103853967/400870b9-edc8-4f14-958e-e5ebf83914fd)
-
-![image](https://github.com/songulhilaloglu/Blog/assets/103853967/793c57f8-95ba-4dd8-b17e-399ac1e1a621)
-
