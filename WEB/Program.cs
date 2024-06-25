@@ -14,7 +14,7 @@ builder.Services.LoadServiceLayerExtension();
 builder.Services.AddSession();
 
 
-
+// test github gönderimi için yorum satırı
 // Add services to the container.
 builder.Services.AddControllersWithViews(opt =>
 {
